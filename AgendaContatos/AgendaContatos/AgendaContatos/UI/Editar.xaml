@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgendaContatos.UI.Editar"
+             xmlns:behavior="clr-namespace:AgendaContatos" 
+             Title="Editar contato">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry x:Name="txtNome" Placeholder="Nome"></Entry>
+                <Entry x:Name="txtTelefone" Placeholder="Telefone" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="(XX) XXXX-XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Button Text="Salvar" Clicked="Handle_ClickedAsync" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

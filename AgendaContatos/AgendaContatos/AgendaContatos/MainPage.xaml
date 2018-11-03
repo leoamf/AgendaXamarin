@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AgendaContatos"
+                xmlns:UI="clr-namespace:AgendaContatos.UI"
+             x:Class="AgendaContatos.MainPage"
+             Title="Listagem de contatos">
+    
+    <StackLayout> 
+        <StackLayout>
+            <Entry x:Name="txtDataUltimoCadastrato"  TextColor="{x:Static Color.Blue}" IsEnabled="False"></Entry> 
+            <Button  Text="Cadastrar" Clicked="Cadastrar_ClickedAsync"></Button>
+        </StackLayout>
+        
+        <ListView x:Name="contatos"   ItemSelected="contatos_ItemSelectedAsync" IsPullToRefreshEnabled="False">
+            <ListView.ItemTemplate>  
+                <DataTemplate >
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="Handle_Delete"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Label Text="{Binding Nome}"  TextColor="{x:Static Color.Blue}"></Label>
+                            <Label Text="{Binding Telefone}"  TextColor="{x:Static Color.Red}"></Label>
+                        </StackLayout>
+                    </ViewCell> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
